@@ -1,5 +1,5 @@
 :root {
-    --cell-dimension: 2px;
+    --cell-dimension: 20px;
 }
 
 * {
@@ -11,18 +11,28 @@ body {
     height: 100vh;
     width: 100vw;
     background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #board{
     display: flex;
+    width: 500px;
+    height: 500px;
     flex-direction: column;
-    width: fit-content;
-    height: fit-content;
-    
+
 }
 
+
+
 .cell{
-    height: --cell-dimension;
-    width: --cell-dimension;
-    border: 1px;
+    height: var(--cell-dimension);
+    width: var(--cell-dimension);
+    border: 1px black solid;
+}
+
+.row{
+    display: flex;
 }
