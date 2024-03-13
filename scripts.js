@@ -6,7 +6,48 @@ let cells = [];
 
 let cellRows = [];
 
+function addEventListenerToCell(cell){
+    cell.addEventListener("mouseenter",()=>{
+        if(penIsOn){
+            cell.style.cssText = "background-color: black;";
+        }
 
+        if(eraserIsOn){
+            cell.style.cssText = "background-color: white;";
+        }
+
+        if(rainbowIsOn){
+            cell.style.cssText = "background-color: red;";
+        }
+    });
+}
+
+function getRandomColor(){
+    let randomNumber;
+
+    switch (randomNumber) {
+        case 1: 
+            return "red";
+
+        case 2: 
+            return "orange";
+
+        case 3: 
+            return "yellow";
+
+        case 4: 
+            return "green";
+        
+        case 5:
+            return "blue";
+
+        case 6: 
+            return "indigo";
+
+        case 7:
+            return "violet";
+    }
+}
 
 function fillBoard(boardDimensions = 16, cellSize = 2){
     for (let i = 0; i < boardDimensions; i++){
@@ -23,6 +64,8 @@ function fillBoard(boardDimensions = 16, cellSize = 2){
 
             cellRow.appendChild(cell);
 
+            addEventListenerToCell(cell);
+
             cells.push(cell);
         }
 
@@ -31,9 +74,7 @@ function fillBoard(boardDimensions = 16, cellSize = 2){
     }
 }
 
-fillBoard();
-
-console.log(cells);
+fillBoard(16);
 
 let eraserIsOn = penIsOn = rainbowIsOn = false;
 
