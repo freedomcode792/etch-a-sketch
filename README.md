@@ -39,12 +39,18 @@ Simple javascript implementation of etch-a-sketch board on a webpage
 
 
 # Pen, eraser, rainbow pen implementation
+        [APPROACH 1]
             1) Create a bunch of boolean variables each
                 associated with a control button and
                 reflecting it's state (on = true/false);
+            2) Attach a hover event listener to each    control button. All these listeners will do is changing the status of boolean values to "true" and false.
             2) Add a hover event listener to every cell.
-                Add activity checks for every boolean
-                variable. If a variable is true -> invoke
+                Inside of the listener, add activity checks for every boolean variable. If a variable is true -> invoke
                 the specified function changing the style
                 of the cell.
+
+
+             
+
+            
 
