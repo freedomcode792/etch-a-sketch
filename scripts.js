@@ -17,13 +17,18 @@ function addEventListenerToCell(cell){
         }
 
         if(rainbowIsOn){
-            cell.style.cssText = "background-color: red;";
+            cell.style.cssText = "background-color: " + getRandomColor();
         }
     });
 }
 
+function getRandomNumber(min, max){
+    rand = (Math.round((Math.random()*(max-min)))+min);
+    return rand;
+}
+
 function getRandomColor(){
-    let randomNumber;
+    const randomNumber = getRandomNumber(1, 7);
 
     switch (randomNumber) {
         case 1: 
