@@ -58,6 +58,12 @@ function scaleCell(){
 
 }
 
+function getBoardDimensionInPx(){
+    const rootStyle = getComputedStyle(document.documentElement);
+    const boardDimension = rootStyle.getPropertyValue("--board-dimension");
+    return +(boardDimension.slice(0, boardDimension.length-2));
+}
+
 function fillBoard(boardDimensions = 16, cellSize = 2){
     for (let i = 0; i < boardDimensions; i++){
         const cellRow = document.createElement("div");
@@ -82,6 +88,18 @@ function fillBoard(boardDimensions = 16, cellSize = 2){
         
     }
 }
+
+/* fillBoard(){
+    1. get board size in pixels
+    2. scale the cell size according to the board size
+    (board size)/number of cells
+    3. Apply the scale to the newly created cells
+    4. fill the board with cells
+
+    1. const boardDimension = getBoardDimension();
+    2. const cellDimension = boardDimension/numberOfCells
+    3. 
+} */
 
 fillBoard(16);
 
@@ -108,12 +126,13 @@ function enableAllControlButtons(){
 }
 
 function removeBoard(){
-    (board.parentNode).removeChild(board);
+    board.innerHTML = "";
 }
 
 refreshButton.addEventListener("click", ()=>{
     removeBoard();
-    
+    fillBoard();
+
 });
 
 eraserButton.addEventListener("click", ()=>{
