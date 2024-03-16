@@ -54,6 +54,10 @@ function getRandomColor(){
     }
 }
 
+function scaleCell(){
+
+}
+
 function fillBoard(boardDimensions = 16, cellSize = 2){
     for (let i = 0; i < boardDimensions; i++){
         const cellRow = document.createElement("div");
@@ -96,10 +100,21 @@ const eraserButton = document.querySelector("#eraser-button");
 const penButton = document.querySelector("#black-pen-button");
 const rainbowPenButton = document.querySelector("#rainbow-pen-button");
 
+
+
 function enableAllControlButtons(){
     eraserButton.disabled = penButton.disabled = rainbowPenButton.disabled = false;
 
 }
+
+function removeBoard(){
+    (board.parentNode).removeChild(board);
+}
+
+refreshButton.addEventListener("click", ()=>{
+    removeBoard();
+    
+});
 
 eraserButton.addEventListener("click", ()=>{
     setInstrumentsStatesToFalse();
@@ -124,4 +139,5 @@ rainbowPenButton.addEventListener("click",()=>{
     enableAllControlButtons();
     rainbowPenButton.disabled = true;
 });
+
 

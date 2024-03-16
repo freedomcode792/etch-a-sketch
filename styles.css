@@ -1,5 +1,6 @@
 :root {
     --cell-dimension: 20px;
+    --board-dimension: 600px;
 }
 
 * {
@@ -19,8 +20,8 @@ body {
 
 #board{
     display: flex;
-    width: 500px;
-    height: 500px;
+    width: var(--board-dimension);
+    height: var(--board-dimension);
     flex-direction: column;
 
 }
@@ -32,6 +33,7 @@ body {
     width: var(--cell-dimension);
     border: 1px black solid;
     background-color: white;
+    box-sizing: border-box;
 }
 
 .row{

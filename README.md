@@ -31,11 +31,19 @@ Simple javascript implementation of etch-a-sketch board on a webpage
             5) Change Color button
 
 
-# Refresh Implementation
-
-
-# Resize Implementation
-
+# Refresh & Resize Implementation
+1. Create a button with an event listener invoking:
+    1) removeBoardFunction -> to remove the existing board
+    2) fillBoardFunction -> to create a new board
+        - this functions should prompt the user for the dimensions of the new board in cells per side.
+        - the dimensions shouldn't be greater than
+        100x100 cells
+        - the new grid should be generated in the same total space as the previous grid. This will require: 
+            1) getting the dimensions of the space reserved for the board
+            2) calculating the size of cells and rows
+            based on the space reserved for the board.
+            3) Integrating the new functionality into
+            the existing code.
 
 
 # Pen, eraser, rainbow pen implementation
