@@ -57,7 +57,8 @@ Simple javascript implementation of etch-a-sketch board on a webpage
                 the specified function changing the style
                 of the cell.
 
-
+            [I want to change the coloring mechanism from hovering to
+            holding click button]
              
 
             
