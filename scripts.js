@@ -54,9 +54,7 @@ function getRandomColor(){
     }
 }
 
-function scaleCell(){
 
-}
 
 function getBoardDimensionInPx(){
     const rootStyle = getComputedStyle(document.documentElement);
@@ -64,18 +62,33 @@ function getBoardDimensionInPx(){
     return +(boardDimension.slice(0, boardDimension.length-2));
 }
 
-function fillBoard(boardDimensions = 16, cellSize = 2){
-    for (let i = 0; i < boardDimensions; i++){
+function changeCellDimension(newCellDimension){
+    document.documentElement.style.setProperty('--cell-dimension', `${newCellDimension}px`);
+}
+
+function fillBoard(boardDimensionInCells = 32){
+
+    const boardDimensionInPx = getBoardDimensionInPx();
+    console.log("boardDimensionInPx: ", boardDimensionInPx);
+
+    const cellDimension = boardDimensionInPx/boardDimensionInCells;
+    console.log("cellDimension: ", cellDimension);
+
+    changeCellDimension(cellDimension);
+
+    for (let i = 0; i < boardDimensionInCells; i++){
         const cellRow = document.createElement("div");
 
         cellRow.classList.add("row");
 
-        for (let j = 0; j < boardDimensions; j++) {
+        for (let j = 0; j < boardDimensionInCells; j++) {
             const cell = document.createElement("div");
 
             cell.classList.add("cell");
 
-            cell.textContent = j+1;
+            
+
+            //cell.textContent = j+1;
 
             cellRow.appendChild(cell);
 
