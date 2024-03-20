@@ -19,6 +19,10 @@ function addEventListenerToCell(cell){
         if(rainbowIsOn){
             cell.style.cssText = "background-color: " + getRandomColor();
         }
+        if(gradualPenIsOn){
+            lightness-=10;
+            cell.style.cssText = `background-color: hsl(0, 0%, ${lightness}%)`;
+        }
     });
 }
 
@@ -116,10 +120,10 @@ function fillBoard(boardDimensionInCells = 32){
 
 fillBoard(16);
 
-let eraserIsOn = penIsOn = rainbowIsOn = false;
+let eraserIsOn = penIsOn = rainbowIsOn = gradualPenIsOn = false;
 
 function setInstrumentsStatesToFalse(){
-    eraserIsOn = penIsOn = rainbowIsOn = false;
+    eraserIsOn = penIsOn = rainbowIsOn = gradualPenIsOn = false;
     console.log(eraserIsOn);
     console.log(penIsOn);
     console.log(rainbowIsOn);
@@ -130,11 +134,11 @@ const refreshButton = document.querySelector("#refresh-button");
 const eraserButton = document.querySelector("#eraser-button");
 const penButton = document.querySelector("#black-pen-button");
 const rainbowPenButton = document.querySelector("#rainbow-pen-button");
-
+const gradualPenButton = document.querySelector("#gradual-pen-button");
 
 
 function enableAllControlButtons(){
-    eraserButton.disabled = penButton.disabled = rainbowPenButton.disabled = false;
+    eraserButton.disabled = penButton.disabled = rainbowPenButton.disabled = gradualPenButton.disabled = false;
 
 }
 
@@ -181,4 +185,12 @@ rainbowPenButton.addEventListener("click",()=>{
     rainbowPenButton.disabled = true;
 });
 
+let lightness;
+gradualPenButton.addEventListener("click",()=>{
+    setInstrumentsStatesToFalse();
+    gradualPenIsOn = true;
+    enableAllControlButtons();
+    gradualPenButton.disabled = true;
+    lightness = 100;
+});
 
