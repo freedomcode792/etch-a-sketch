@@ -158,6 +158,7 @@ function isNumericString(str) {
 refreshButton.addEventListener("click", ()=>{
     removeBoard();
     fillBoard(getUserInput());
+    lightness = 100;
 
 });
 
