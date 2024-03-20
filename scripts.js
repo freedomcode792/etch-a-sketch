@@ -142,9 +142,18 @@ function removeBoard(){
     board.innerHTML = "";
 }
 
+function isNumericString(str) {
+    return /^\d+$/.test(str);
+  }
+
+  function getUserInput(input=+prompt("Enter board side length in cells")){
+    
+    return input ? (input<=100 ? input : getUserInput(+prompt("No more than 100 cells is allowed"))) : getUserInput();
+  }
+
 refreshButton.addEventListener("click", ()=>{
     removeBoard();
-    fillBoard();
+    fillBoard(getUserInput());
 
 });
 
