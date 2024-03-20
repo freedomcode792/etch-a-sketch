@@ -124,9 +124,6 @@ let eraserIsOn = penIsOn = rainbowIsOn = gradualPenIsOn = false;
 
 function setInstrumentsStatesToFalse(){
     eraserIsOn = penIsOn = rainbowIsOn = gradualPenIsOn = false;
-    console.log(eraserIsOn);
-    console.log(penIsOn);
-    console.log(rainbowIsOn);
 }
 
 const refreshButton = document.querySelector("#refresh-button");
@@ -165,7 +162,6 @@ refreshButton.addEventListener("click", ()=>{
 eraserButton.addEventListener("click", ()=>{
     setInstrumentsStatesToFalse();
     eraserIsOn = true;
-    console.log(eraserIsOn);
     enableAllControlButtons();
     eraserButton.disabled = true;
 });
@@ -173,7 +169,6 @@ eraserButton.addEventListener("click", ()=>{
 penButton.addEventListener("click", ()=>{
     setInstrumentsStatesToFalse();
     penIsOn = true;
-    console.log(penIsOn);
     enableAllControlButtons();
     penButton.disabled = true;
 });
@@ -181,7 +176,6 @@ penButton.addEventListener("click", ()=>{
 rainbowPenButton.addEventListener("click",()=>{
     setInstrumentsStatesToFalse();
     rainbowIsOn = true;
-    console.log(rainbowIsOn);
     enableAllControlButtons();
     rainbowPenButton.disabled = true;
 });
